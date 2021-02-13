@@ -1,5 +1,7 @@
-﻿using Business.Concrete;
+﻿//Written by : Barışcan KURTKAYA
+using Business.Concrete;
 using DataAccess.Concrete;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -10,13 +12,23 @@ namespace ConsoleUI
         {
             ProductsManager productsManager = new ProductsManager(new InMemoryProductsDal());
 
-            Console.WriteLine(productsManager.GetById(2).DailyPrice); 
-
             foreach (var product in productsManager.GetAll())
             {
                 string brandName = productsManager.GetCarBrand(product.BrandId);
-                Console.WriteLine("Marka: " + brandName + " Günlük Ücretler:" + product.DailyPrice);
+                string colorName = productsManager.GetCarColor(product.ColorId);
+                Console.WriteLine(
+                    product.ProductId + ": " + 
+                    "Marka: " + brandName +
+                    " |Renk: " + colorName +
+                    " |Yıl: " + product.ModelYear +
+                    " |Günlük Ücretler:" + product.DailyPrice +
+                    " |Özellikleri: " + product.Description
+                    );
             }
+
+            Console.WriteLine(productsManager.GetCarColor(3));
+            Products product1 = productsManager.GetById(5);
+            Console.WriteLine(product1.BrandId);
         }
     }
 }
