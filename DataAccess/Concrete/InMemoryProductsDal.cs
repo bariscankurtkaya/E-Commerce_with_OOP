@@ -45,7 +45,7 @@ namespace DataAccess.Concrete
 
         public void Delete(Products product)
         {
-            Products productToDelete = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
+            Products productToDelete = _products.Find(p => p.ProductId == product.ProductId);
             _products.Remove(productToDelete);
         }
 
@@ -56,12 +56,12 @@ namespace DataAccess.Concrete
 
         public Products GetById(int productId)
         {
-            return _products.SingleOrDefault(p => p.ProductId == productId);
+            return _products.Find(p => p.ProductId == productId);
         }
 
         public void Update(Products product)
         {
-            Products productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
+            Products productToUpdate = _products.Find(p => p.ProductId == product.ProductId);
             productToUpdate.BrandId = product.BrandId;
             productToUpdate.ColorId = product.ColorId;
             productToUpdate.DailyPrice = product.DailyPrice;
@@ -70,11 +70,11 @@ namespace DataAccess.Concrete
         }
         public string GetCarBrand(int brandId)
         {
-            return _brands.SingleOrDefault(b => b.BrandId == brandId).BrandName;
+            return _brands.Find(b => b.BrandId == brandId).BrandName;
         }
         public string GetCarColor(int colorId)
         {
-            return _colors.SingleOrDefault(c=> c.ColorId==colorId).ColorName;
+            return _colors.Find(c=> c.ColorId==colorId).ColorName;
         }
     }
 }
