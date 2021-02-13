@@ -70,6 +70,7 @@ namespace DataAccess.Concrete
         }
         public string GetCarBrand(int brandId)
         {
+            //Join ile de yapılabilirdi.
             return _brands.Find(b => b.BrandId == brandId).BrandName;
         }
         public string GetCarColor(int colorId)
