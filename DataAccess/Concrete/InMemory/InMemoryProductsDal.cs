@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete
@@ -76,6 +77,16 @@ namespace DataAccess.Concrete
         public string GetCarColor(int colorId)
         {
             return _colors.Find(c=> c.ColorId==colorId).ColorName;
+        }
+
+        public List<Products> GetAll(Expression<Func<Products, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Products Get(Expression<Func<Products, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }
