@@ -14,17 +14,20 @@ namespace ConsoleUI
 
             foreach (var product in productsManager.GetAll())
             {
-                string brandName = productsManager.GetCarBrand(product.BrandId);
-                string colorName = productsManager.GetCarColor(product.ColorId);
+                string brandName = productsManager.GetProductBrand(product.BrandId);
+                string colorName = productsManager.GetProductColor(product.ColorId);
+                string sexName = productsManager.GetProductSex(product.SexId);
+                string productType = productsManager.GetProductType(product.ProductTypeId);
                 Console.WriteLine(
-                    "{0}: Marka: {1}  --- Renk: {2} --- Yıl:{3}  --- Günlük Ücretler:{4} --- Özellikleri: {5}"
-                    , product.ProductId, brandName, colorName, product.ModelYear, product.DailyPrice, product.Description
+                    "{0}: Brand: {1}  --- Color: {2} --- Sex:{3}  --- Price:{4} --- Type: {5}"
+                    , product.ProductId, brandName, colorName, sexName, product.Price, productType
                     );
             }
 
-            Console.WriteLine("3.Arabanın rengi: " +productsManager.GetCarColor(3));
-            Products product1 = productsManager.GetById(5);
-            Console.WriteLine("5.Arabanın markası: " +product1.BrandId);
+            Console.WriteLine("4'th products color: " + productsManager.GetProductColor(productsManager.GetById(4).ColorId));
+
+            Products product1 = productsManager.GetById(6);
+            Console.WriteLine("6'th products brand: " + productsManager.GetProductBrand(product1.BrandId));
         }
     }
 }

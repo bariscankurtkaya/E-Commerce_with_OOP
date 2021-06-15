@@ -12,7 +12,9 @@ namespace DataAccess.Abstract
         void Add(Products product);
         void Update(Products product);
         void Delete(Products product);
-        string GetCarBrand(int brandId);
-        string GetCarColor(int colorId);
+        string GetProductBrand(int brandId);
+        string GetProductColor(int colorId);
+        string GetProductType(int productTypeId);
+        string GetProductSex(int sexId);
     }
 }

@@ -33,15 +33,24 @@ namespace Business.Concrete
         {
             return _productDal.GetById(productId);
         }
-
-        public string GetCarBrand(int brandId)
+        public string GetProductBrand(int brandId)
         {
-            return _productDal.GetCarBrand(brandId);
+            return _productDal.GetProductBrand(brandId);
         }
 
-        public string GetCarColor(int colorId)
+        public string GetProductColor(int colorId)
         {
-            return _productDal.GetCarColor(colorId);
+            return _productDal.GetProductColor(colorId);
+        }
+
+        public string GetProductSex(int sexId)
+        {
+            return _productDal.GetProductSex(sexId);
+        }
+
+        public string GetProductType(int productTypeId)
+        {
+            return _productDal.GetProductType(productTypeId);
         }
 
         public void Update(Products product)
