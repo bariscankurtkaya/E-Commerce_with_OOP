@@ -14,22 +14,22 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-        public void Add(Products product)
+        public void Add(Product product)
         {
             _productDal.Add(product);
         }
 
-        public void Delete(Products product)
+        public void Delete(Product product)
         {
             _productDal.Delete(product);
         }
 
-        public List<Products> GetAll()
+        public List<Product> GetAll()
         {
             return _productDal.GetAll();
         }
 
-        public Products GetById(int productId)
+        public Product GetById(int productId)
         {
             return _productDal.GetById(productId);
         }
@@ -53,7 +53,7 @@ namespace Business.Concrete
             return _productDal.GetProductType(productTypeId);
         }
 
-        public void Update(Products product)
+        public void Update(Product product)
         {
             _productDal.Update(product);
         }

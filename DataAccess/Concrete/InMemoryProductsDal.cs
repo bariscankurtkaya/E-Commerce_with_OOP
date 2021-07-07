@@ -9,73 +9,73 @@ namespace DataAccess.Concrete
 {
     public class InMemoryProductsDal : IProductsDal
     {
-        List<Products> _products;
-        List<Brands> _brands;
-        List<Colors> _colors;
-        List<ProductTypes> _productTypes;
-        List<Sexs> _sexs;
+        List<Product> _products;
+        List<Brand> _brands;
+        List<Color> _colors;
+        List<ProductType> _productTypes;
+        List<Sex> _sexs;
         public InMemoryProductsDal()
         {
-            _products = new List<Products>
+            _products = new List<Product>
             {
-                new Products{ProductId=1, BrandId=1, ColorId=1, Price=80, ProductTypeId=2, SexId=1},
-                new Products{ProductId=2, BrandId=2, ColorId=2, Price=350, ProductTypeId=3, SexId=2},
-                new Products{ProductId=3, BrandId=1, ColorId=1, Price=150, ProductTypeId=1, SexId=3},
-                new Products{ProductId=4, BrandId=3, ColorId=3, Price=70, ProductTypeId=3, SexId=1},
-                new Products{ProductId=5, BrandId=3, ColorId=2, Price=100, ProductTypeId=2, SexId=3},
-                new Products{ProductId=6, BrandId=1, ColorId=4, Price=110, ProductTypeId=1, SexId=2}
+                new Product{ProductId=1, BrandId=1, ColorId=1, Price=80, ProductTypeId=2, SexId=1},
+                new Product{ProductId=2, BrandId=2, ColorId=2, Price=350, ProductTypeId=3, SexId=2},
+                new Product{ProductId=3, BrandId=1, ColorId=1, Price=150, ProductTypeId=1, SexId=3},
+                new Product{ProductId=4, BrandId=3, ColorId=3, Price=70, ProductTypeId=3, SexId=1},
+                new Product{ProductId=5, BrandId=3, ColorId=2, Price=100, ProductTypeId=2, SexId=3},
+                new Product{ProductId=6, BrandId=1, ColorId=4, Price=110, ProductTypeId=1, SexId=2}
             };
-            _brands = new List<Brands>
+            _brands = new List<Brand>
             {
-                new Brands{BrandId=1,BrandName="Defacto"},
-                new Brands{BrandId=2, BrandName="Zara"},
-                new Brands{BrandId=3, BrandName="Pull & Bear"}
+                new Brand{BrandId=1,BrandName="Defacto"},
+                new Brand{BrandId=2, BrandName="Zara"},
+                new Brand{BrandId=3, BrandName="Pull & Bear"}
             };
-            _colors = new List<Colors>
+            _colors = new List<Color>
             {
-                new Colors{ColorId=1, ColorName="Black"},
-                new Colors{ColorId=2, ColorName="Red"},
-                new Colors{ColorId=3, ColorName="White"},
-                new Colors{ColorId=4, ColorName="Yellow"}
+                new Color{ColorId=1, ColorName="Black"},
+                new Color{ColorId=2, ColorName="Red"},
+                new Color{ColorId=3, ColorName="White"},
+                new Color{ColorId=4, ColorName="Yellow"}
             };
-            _productTypes = new List<ProductTypes>
+            _productTypes = new List<ProductType>
             {
-                new ProductTypes{ProductTypeId=1, ProductType="Tshirt"},
-                new ProductTypes{ProductTypeId=2, ProductType="Trousers"},
-                new ProductTypes{ProductTypeId=3, ProductType="Sweatshirt"}
+                new ProductType{ProductTypeId=1, Type="Tshirt"},
+                new ProductType{ProductTypeId=2, Type="Trousers"},
+                new ProductType{ProductTypeId=3, Type="Sweatshirt"}
             };
-            _sexs = new List<Sexs>
+            _sexs = new List<Sex>
             {
-                new Sexs{SexId=1, Sex="Unisex"},
-                new Sexs{SexId=2, Sex="Woman"},
-                new Sexs{SexId=3, Sex="Man"}
+                new Sex{SexId=1, SexType="Unisex"},
+                new Sex{SexId=2, SexType="Woman"},
+                new Sex{SexId=3, SexType="Man"}
             };
             
         }
-        public void Add(Products product)
+        public void Add(Product product)
         {
             _products.Add(product);
         }
 
-        public void Delete(Products product)
+        public void Delete(Product product)
         {
-            Products productToDelete = _products.Find(p => p.ProductId == product.ProductId);
+            Product productToDelete = _products.Find(p => p.ProductId == product.ProductId);
             _products.Remove(productToDelete);
         }
 
-        public List<Products> GetAll()
+        public List<Product> GetAll()
         {
             return _products;
         }
 
-        public Products GetById(int productId)
+        public Product GetById(int productId)
         {
             return _products.Find(p => p.ProductId == productId);
         }
 
-        public void Update(Products product)
+        public void Update(Product product)
         {
-            Products productToUpdate = _products.Find(p => p.ProductId == product.ProductId);
+            Product productToUpdate = _products.Find(p => p.ProductId == product.ProductId);
             productToUpdate.BrandId = product.BrandId;
             productToUpdate.ColorId = product.ColorId;
             productToUpdate.Price = product.Price;
@@ -95,12 +95,12 @@ namespace DataAccess.Concrete
 
         public string GetProductType(int productTypeId)
         {
-            return _productTypes.Find(pT => pT.ProductTypeId == productTypeId).ProductType;
+            return _productTypes.Find(pT => pT.ProductTypeId == productTypeId).Type;
         }
 
         public string GetProductSex(int sexId)
         {
-            return _sexs.Find(s => s.SexId == sexId).Sex;
+            return _sexs.Find(s => s.SexId == sexId).SexType;
         }
     }
 }

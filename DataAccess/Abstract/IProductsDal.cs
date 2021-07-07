@@ -7,11 +7,11 @@ namespace DataAccess.Abstract
 {
     public interface IProductsDal
     {
-        Products GetById(int productId);
-        List<Products> GetAll();
-        void Add(Products product);
-        void Update(Products product);
-        void Delete(Products product);
+        Product GetById(int productId);
+        List<Product> GetAll();
+        void Add(Product product);
+        void Update(Product product);
+        void Delete(Product product);
         string GetProductBrand(int brandId);
         string GetProductColor(int colorId);
         string GetProductType(int productTypeId);

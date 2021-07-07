@@ -11,6 +11,10 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             ProductsManager productsManager = new ProductsManager(new InMemoryProductsDal());
+            ProductsManager productsManagerSql = new ProductsManager(new SqlProductsDal());
+
+            Product product2 = new Product { BrandId = 1, ColorId = 6, Price = 127, ProductId = 7, ProductTypeId = 1, SexId = 1 };
+            productsManagerSql.Add(product2);
 
             foreach (var product in productsManager.GetAll())
             {
@@ -26,7 +30,7 @@ namespace ConsoleUI
 
             Console.WriteLine("4'th products color: " + productsManager.GetProductColor(productsManager.GetById(4).ColorId));
 
-            Products product1 = productsManager.GetById(6);
+            Product product1 = productsManager.GetById(6);
             Console.WriteLine("6'th products brand: " + productsManager.GetProductBrand(product1.BrandId));
         }
     }
